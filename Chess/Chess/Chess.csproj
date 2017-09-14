@@ -42,11 +42,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board.cs" />
+    <Compile Include="BoardSide.cs" />
+    <Compile Include="ConsoleInputProvider.cs" />
+    <Compile Include="ConsoleOutputProvider.cs" />
+    <Compile Include="Exceptions\InvalidPieceMoveException.cs" />
+    <Compile Include="Exceptions\InvalidBoardMoveException.cs" />
+    <Compile Include="Exceptions\InvalidInputException.cs" />
+    <Compile Include="GameManager.cs" />
+    <Compile Include="GameState.cs" />
+    <Compile Include="Pieces\Pawn.cs" />
+    <Compile Include="Pieces\Piece.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Interfaces\IInputProvider.cs" />
+    <Compile Include="Interfaces\IMoveProvider.cs" />
+    <Compile Include="Interfaces\IOutputProvider.cs" />
+    <Compile Include="Interfaces\IPiece.cs" />
+    <Compile Include="Interfaces\IPlayer.cs" />
+    <Compile Include="Move.cs" />
+    <Compile Include="MoveProvider.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

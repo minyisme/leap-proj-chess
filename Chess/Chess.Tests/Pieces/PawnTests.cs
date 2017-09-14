@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Chess.Tests
+namespace Chess.Tests.Pieces
 {
     [TestClass]
-    public class UnitTest1
+    public class PawnTests
     {
         [TestMethod]
         public void TestMethod1()
