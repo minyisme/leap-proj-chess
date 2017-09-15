@@ -93,3 +93,4 @@ namespace Chess
             throw new NotImplementedException();
         }
     }
+}
