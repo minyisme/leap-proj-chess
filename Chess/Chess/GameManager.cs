@@ -18,6 +18,11 @@ namespace Chess
         /// </summary>
         private IOutputProvider outputProvider;
 
+        /// <summary>
+        /// The board renderer
+        /// </summary>
+        private IBoardRenderer boardRenderer;
+
         // create something to keep track of the current player
         // remember to use interfaces whenever possible
 
@@ -29,7 +34,7 @@ namespace Chess
         /// <summary>
         /// Default constructor, uses a new Board and ConsoleOutputProvider
         /// </summary>
-        public GameManager() : this(new Board(), new ConsoleOutputProvider())
+        public GameManager() : this(new Board(), new ConsoleOutputProvider(), new ConsoleBoardRenderer())
         {
 
         }
@@ -38,7 +43,7 @@ namespace Chess
         /// Constructor used for unit testing
         /// </summary>
         /// <param name="board"></param>
-        public GameManager(Board board) : this(board, new ConsoleOutputProvider())
+        public GameManager(Board board) : this(board, new ConsoleOutputProvider(), new ConsoleBoardRenderer())
         {
 
         }
@@ -48,14 +53,14 @@ namespace Chess
         /// </summary>
         /// <param name="board"></param>
         /// <param name="outputProvider"></param>
-        public GameManager(Board board, IOutputProvider outputProvider)
+        public GameManager(Board board, IOutputProvider outputProvider, IBoardRenderer boardRenderer)
         {
             // validate the inputs
-            // if board is null, throw an ArgumentNullException
-            // if outputProvider is null, throw an ArgumentNullException
 
             this.board = board;
             this.outputProvider = outputProvider;
+            this.boardRenderer = boardRenderer;
+
             GameState = GameState.WaitingToStart;
         }
 
@@ -74,6 +79,8 @@ namespace Chess
         public void PerformSingleTurn(IPlayer player)
         {
             // write the logic to perform a single turn
+            
+            // use the output provider for all outputs except drawing the board (use the board renderer for that)
         }
 
         /// <summary>

@@ -10,19 +10,22 @@ namespace Chess.Pieces
     /// </summary>
     public abstract class Piece : IPiece
     {
-        public IPlayer Owner { get; set; }
-        public string Label { get; set; }
+        public IPlayer Owner { get; private set; }
+        public string Label { get; private set; }
 
         /// <summary>
         /// Constructor that expects an owner, since all pieces must have an owner
         /// </summary>
         /// <param name="owner">The player that owns the piece</param>
-        public Piece(IPlayer owner)
+        /// <param name="label">The label for the piece, controls how to draw it</param>
+        public Piece(IPlayer owner, string label)
         {
             // validate the inputs
             // If owner is null, throw an ArgumentNullException
+            // If label is null or empty, throw an appropriate exception
 
             Owner = owner;
+            Label = label;
         }
 
         /// <summary>
@@ -40,14 +43,11 @@ namespace Chess.Pieces
 
         /// <summary>
         /// Override of ToString, used to draw the piece when drawing the board
-        /// Uses the label, or the first letter of the owner's name if the label is not set
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
-            // if the label is null, use the first letter of the owner's name
-            // otherwise, use the label
-            throw new NotImplementedException();
+            return Label;
         }
     }
 }

@@ -9,12 +9,12 @@
         /// <summary>
         /// The owner of the piece
         /// </summary>
-        IPlayer Owner { get; set; }
+        IPlayer Owner { get; }
 
         /// <summary>
         /// The piece label, used to represent the piece when drawing it
         /// </summary>
-        string Label { get; set; }
+        string Label { get; }
 
         /// <summary>
         /// Is the move valid for this piece, given the current board state?

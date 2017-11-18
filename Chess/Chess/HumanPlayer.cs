@@ -6,7 +6,7 @@ namespace Chess
     /// <summary>
     /// The HumanPlayer class, represents a human player
     /// </summary>
-    public class Player : IPlayer
+    public class HumanPlayer : IPlayer
     {
         /// <summary>
         /// The player's name
@@ -19,6 +19,11 @@ namespace Chess
         public BoardSide Side { get; private set; }
 
         /// <summary>
+        /// The player's color, used to color their pieces when drawing
+        /// </summary>
+        public PlayerColor Color { get; private set; }
+
+        /// <summary>
         /// The move provider, used for getting moves
         /// </summary>
         private IMoveProvider mp;
@@ -28,7 +33,7 @@ namespace Chess
         /// </summary>
         /// <param name="name">The player name</param>
         /// <param name="side">The side of the board the player sits on</param>
-        public Player(string name, BoardSide side) : this(name, side, new MoveProvider())
+        public HumanPlayer(string name, BoardSide side, PlayerColor color) : this(name, side, color, new MoveProvider())
         {
 
         }
@@ -38,8 +43,9 @@ namespace Chess
         /// </summary>
         /// <param name="name">The name of the player</param>
         /// <param name="side">The side of the board the player sits on</param>
+        /// <param name="color">The color of the player's pieces</param>
         /// <param name="mp">The move provider</param>
-        public Player(string name, BoardSide side, IMoveProvider mp)
+        public HumanPlayer(string name, BoardSide side, PlayerColor color, IMoveProvider mp)
         {
             // validate the inputs
             // If name is null or empty, throw an ArgumentNullException
@@ -47,6 +53,7 @@ namespace Chess
 
             Name = name;
             Side = side;
+            Color = color;
             this.mp = mp;
         }
 

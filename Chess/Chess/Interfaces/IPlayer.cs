@@ -16,6 +16,11 @@
         BoardSide Side { get; }
 
         /// <summary>
+        /// The player's color
+        /// </summary>
+        PlayerColor Color { get; }
+
+        /// <summary>
         /// Get a move from the player
         /// </summary>
         /// <returns>The move</returns>
