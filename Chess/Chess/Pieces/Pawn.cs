@@ -9,7 +9,7 @@ namespace Chess.Pieces
         /// Constructor that expects an owner
         /// </summary>
         /// <param name="owner"></param>
-        public Pawn(IPlayer owner) : base(owner)
+        public Pawn(IPlayer owner) : base(owner, "P")
         {
         }
 
