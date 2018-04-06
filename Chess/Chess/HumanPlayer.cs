@@ -61,7 +61,7 @@ namespace Chess
         /// Get a move
         /// </summary>
         /// <returns>The move</returns>
-        public Move GetMove()
+        public IMove GetMove()
         {
             // get the move from the move provider
             // set the move owner to the current player (using "this") since this is used during validation

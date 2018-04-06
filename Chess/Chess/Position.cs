@@ -1,17 +1,19 @@
-﻿namespace Chess
+﻿using Chess.Interfaces;
+
+namespace Chess
 {
     /// <summary>
     /// The position class, represents a board position
     /// </summary>
-    public class Position
+    public class Position : IPosition
     {
         /// <summary>
-        /// The X part of the position
+        /// The position row
         /// </summary>
         public int Row { get; private set; }
 
         /// <summary>
-        /// The Y part of the position
+        /// The position column
         /// </summary>
         public int Column { get; private set; }
 
@@ -20,10 +22,10 @@
         /// </summary>
         /// <param name="column"></param>
         /// <param name="row"></param>
-        public Position(int column, int row)
+        public Position(int row, int column)
         {
-            Column = column;
             Row = row;
+            Column = column;
         }
     }
 }

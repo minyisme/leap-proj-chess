@@ -9,6 +9,6 @@
         /// Get a move
         /// </summary>
         /// <returns>The move</returns>
-        Move GetMove();
+        IMove GetMove();
     }
 }

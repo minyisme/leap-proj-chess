@@ -5,17 +5,12 @@ namespace Chess
     /// <summary>
     /// The Move class, represents a game move
     /// </summary>
-    public class Move
+    public class Move : IMove
     {
-        /// <summary>
-        /// The player making the move
-        /// </summary>
-        public IPlayer Owner { get; set; }
-
         // The move source
-        public Position Source { get; set; }
+        public IPosition Source { get; set; }
 
         // the move dest
-        public Position Dest { get; set; }
+        public IPosition Dest { get; set; }
     }
 }

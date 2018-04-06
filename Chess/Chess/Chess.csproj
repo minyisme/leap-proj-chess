@@ -44,7 +44,11 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="ConsoleBoardRenderer.cs" />
+    <Compile Include="Interfaces\IBoard.cs" />
     <Compile Include="Interfaces\IBoardRenderer.cs" />
+    <Compile Include="Interfaces\IMove.cs" />
+    <Compile Include="Interfaces\IPosition.cs" />
+    <Compile Include="Pieces\Knight.cs" />
     <Compile Include="PlayerColor.cs" />
     <Compile Include="BoardSide.cs" />
     <Compile Include="ConsoleInputProvider.cs" />
@@ -54,7 +58,6 @@
     <Compile Include="Exceptions\InvalidInputException.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="GameState.cs" />
-    <Compile Include="Pieces\Pawn.cs" />
     <Compile Include="Pieces\Piece.cs" />
     <Compile Include="HumanPlayer.cs" />
     <Compile Include="Interfaces\IInputProvider.cs" />

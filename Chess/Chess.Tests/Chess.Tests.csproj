@@ -48,11 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoardTests.cs" />
-    <Compile Include="GameManagerTests.cs" />
-    <Compile Include="MoveProviderTests.cs" />
-    <Compile Include="Pieces\PawnTests.cs" />
-    <Compile Include="PlayerTests.cs" />
+    <Compile Include="Pieces\KnightTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

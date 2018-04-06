@@ -1,5 +1,5 @@
 ﻿using Chess.Interfaces;
-using System;
+using System.Collections.Generic;
 
 namespace Chess.Pieces
 {
@@ -23,23 +23,19 @@ namespace Chess.Pieces
             // validate the inputs
             // If owner is null, throw an ArgumentNullException
             // If label is null or empty, throw an appropriate exception
-
             Owner = owner;
             Label = label;
         }
 
         /// <summary>
-        /// Is the move valid for this piece, given the current board state?
+        /// Get valid moves (destinations) for this piece for the given source position
         /// The board is needed for checking special cases like "are pieces in the way" or special moves like "pawns capturing diagonally"
-        /// This method is virtual and is meant to be overridden in derived pieces
+        /// This is abstract and meant to be overridden by concrete piece classes
         /// </summary>
         /// <param name="move">The move</param>
         /// <param name="board">The board</param>
-        /// <returns></returns>
-        public virtual bool IsMoveValid(Move move, Board board)
-        {
-            throw new NotImplementedException();
-        }
+        /// <returns>The valid destination positions, or null if there are none</returns>
+        public abstract IEnumerable<IPosition> GetValidMoves(IPosition source, IBoard board);
 
         /// <summary>
         /// Override of ToString, used to draw the piece when drawing the board

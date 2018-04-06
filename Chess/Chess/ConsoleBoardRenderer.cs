@@ -8,19 +8,25 @@ using System.Threading.Tasks;
 namespace Chess
 {
     /// <summary>
-    /// The ConsoleBoardRenderer class, renders the board to the console
+    /// The ConsoleBoardRenderer class, used to render the board to the Console
     /// </summary>
     public class ConsoleBoardRenderer : IBoardRenderer
     {
         /// <summary>
-        /// Render the board to the console
-        /// Each piece on the board has a label which can be used to draw it
-        /// Each piece on the board has an owner, which has a color, which can be used to change the piece color when drawing it
-        /// The rest of how the board looks is up to you
+        /// Render the specified board
         /// </summary>
         /// <param name="board">The board</param>
-        public void Render(Board board)
+        public void Render(IBoard board)
         {
+            // validate the arguments
+            // if board is null, throw ArgumentNullException
+
+            // draw the board to the console, however you see fit
+            // each piece has a ToString() you can use to draw it
+
+            // Use colors to make your output look prettier
+            // Each piece has an owner so you can use that to drive the color
+            // If you don't know how to do colors in the Console, look it up :)
             throw new NotImplementedException();
         }
     }

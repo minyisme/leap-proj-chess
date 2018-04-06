@@ -6,34 +6,59 @@ namespace Chess
     /// <summary>
     /// The board class, represents the game board
     /// </summary>
-    public class Board
+    public class Board : IBoard
     {
+        // the rows and columns, hardcoded
+        private const int rows = 8;
+        private const int columns = 8;
+
         // need a data structure of IPieces to represent pieces on the board
-        // (a 2D array or an array of arrays would probably be appropriate)
-        // empty spots will just contain null
+        // the board, represented by a 2d array of pieces
+        private IPiece[,] pieces;
 
         /// <summary>
-        /// The output provider, used to draw the board
+        /// The number of rows on the board
         /// </summary>
-        private IOutputProvider outputProvider;
+        public int NumRows { get; protected set; }
 
         /// <summary>
-        /// Default constructor, uses the Console for all outputs
+        /// The number of columns on the board
         /// </summary>
-        public Board() : this(new ConsoleOutputProvider())
+        public int NumColumns { get; protected set; }
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Board() : this(rows, columns)
         {
 
         }
 
         /// <summary>
-        /// Constructor with a specified IOutputProvider, used for unit testing
+        /// Constructor
         /// </summary>
-        /// <param name="outputProvider">The output provider</param>
-        public Board(IOutputProvider outputProvider)
+        /// <param name="numRows">The number of rows</param>
+        /// <param name="numRows">The number columns</param>
+        public Board(int numRows, int numColumns)
         {
-            // validate the inputs!
+            // validate the inputs
 
-            this.outputProvider = outputProvider;
+            NumRows = numRows;
+            NumColumns = numColumns;
+            pieces = new IPiece[NumRows, NumColumns];
+        }
+
+        /// <summary>
+        /// Constuctor used for unit testing
+        /// </summary>
+        /// <param name="pieces">The pieces</param>
+        public Board(IPiece[,] pieces)
+        {
+            // validate the inputs
+
+            this.pieces = pieces;
+
+            // calculate the number of rows and columns and update num rows and num columns
         }
 
         /// <summary>
@@ -42,7 +67,7 @@ namespace Chess
         /// <param name="column">The column</param>
         /// <param name="row">The row</param>
         /// <returns>The piece, or null if there is none</returns>
-        public IPiece GetPiece(Position p)
+        public IPiece GetPiece(IPosition p)
         {
             // validate the inputs!
 
@@ -52,12 +77,11 @@ namespace Chess
         }
 
         /// <summary>
-        /// Add a piece to the board, used for initializing the board
-        /// Use MovePiece to move existing pieces
+        /// Add a piece to the board, used for board initialization
         /// </summary>
-        /// <param name="piece">The piece to be added</param>
+        /// <param name="piece">The piece to be placed</param>
         /// <param name="position">The position</param>
-        public void AddPiece(IPiece piece, Position p)
+        public void AddPiece(IPiece piece, IPosition p)
         {
             // validate the inputs!
 
@@ -66,57 +90,73 @@ namespace Chess
         }
 
         /// <summary>
-        /// Move a piece
+        /// Move a piece on the board
         /// </summary>
-        /// <param name="move">The move</param>
-        public void MovePiece(Move move)
+        public void MovePiece(IPlayer player, IMove move)
         {
             // validate the inputs!
 
-            // if there is no piece at the source, throw an InvalidBoardMoveException with an appropriate message
-            // if there is a piece in the source, but the piece owner and move owner are different, throw an InvalidBoardMoveException with an appropriate message
-            // if there is a piece in the dest, but the piece owner and the move owner are the same, throw an InvalidBoardMoveException with an appropriate message
+            // if there is no piece at the source, throw an InvalidBoardMoveException 
+            // with an appropriate message
 
-            // Ask the piece if the move is valid for that piece type
-            // Note that because IsMoveValid is virtual, it is polymorphic by nature, and it will be called on the correct derived class of piece
-            // if it's not, throw an InvalidPieceMoveException with an appropriate message
+            // if there is a piece in the source, but the specified player is not the piece owner, 
+            // throw an InvalidBoardMoveException with an appropriate message
+
+            // if there is a piece in the dest, but the piece owner and the move owner are the same, 
+            // throw an InvalidBoardMoveException with an appropriate message
+
+            // Ask the piece for valid moves based on the piece position
+            // This works because GetValidMoves is absrtact and will be called on the correct concrete piece
+            
+            // If the specified destination is not in the valid move list,
+            // throw an InvalidPieceMoveException with an appropriate message
 
             // once we get here, we know the move is valid
             // move the piece, overwriting the enemy piece in dest if there is one
         }
 
         /// <summary>
-        /// Draw the board
+        /// Is the specified column valid?
         /// </summary>
-        public void Draw()
+        /// <param name="column">The column number</param>
+        /// <returns>True if yes, false otherwise</returns>
+        public bool IsColumnValid(int column)
         {
-            // Draw the board with pieces in it using the output provider
-            outputProvider.Write(ToString());
-        }
-
-        /// <summary>
-        /// Get a string representation of the board
-        /// </summary>
-        /// <returns>The board as a string</returns>
-        public override string ToString()
-        {
-            // Return what the board should look like when printed as a string
-            // Use the StringBuilder class to build each line of the board
+            // write code to check if the specified column is "on the board"
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Helper function to determine if there are pieces between two positions
-        /// Useful since most pieces can't move through other pieces
-        /// This should NOT check the pieces at p1 or p2, only squares between them
+        /// Is the specified row valid?
         /// </summary>
-        /// <param name="p1">Position 1</param>
-        /// <param name="p2">Position 2</param>
-        /// <returns></returns>
-        public bool ArePiecesBetween(Position p1, Position p2)
+        /// <param name="row">The row number</param>
+        /// <returns>True if yes, false otherwise</returns>
+        public bool IsRowValid(int row)
+        {
+            // write code to check if the specified column is "on the board"
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Draw the board using a specified renderer
+        /// </summary>
+        /// <param name="renderer">The board renderer</param>
+        public void Draw(IBoardRenderer renderer)
+        {
+            renderer.Render(this);
+        }
+
+        /// <summary>
+        /// Check if pieces are between the two specified positions (excluding the positions)
+        /// </summary>
+        /// <param name="source">The source position</param>
+        /// <param name="dest">The dest position</param>
+        /// <returns>True if there are pieces between, false otherwise</returns>
+        public bool ArePiecesBetween(IPosition p1, IPosition p2)
         {
             // validate the inputs!
 
+            // if p1 and p2 are the same, return false
             // if p1 and p2 don't share a row, column, or a diagonal, return false
 
             // if they are in the same row, check the columns between them in the same row

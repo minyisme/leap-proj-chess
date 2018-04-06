@@ -22,6 +22,9 @@
         /// </summary>
         void WriteLine();
 
-        // feel free to add functions to change output colors if you want a prettier game board :)
+        /// <summary>
+        /// Clear the output
+        /// </summary>
+        void Clear();
     }
 }

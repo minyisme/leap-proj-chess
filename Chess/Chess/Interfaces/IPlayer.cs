@@ -24,6 +24,6 @@
         /// Get a move from the player
         /// </summary>
         /// <returns>The move</returns>
-        Move GetMove();
+        IMove GetMove();
     }
 }

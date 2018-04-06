@@ -36,5 +36,14 @@ namespace Chess
             // This function should write an empty new line to the console
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// Clear the output
+        /// </summary>
+        public void Clear()
+        {
+            // This function should clear the output
+            throw new NotImplementedException();
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace Chess
         /// Get a move
         /// </summary>
         /// <returns>The move</returns>
-        public Move GetMove()
+        public IMove GetMove()
         {
             // This function should get input from the input provider
             // and create a move from it, returning that move
