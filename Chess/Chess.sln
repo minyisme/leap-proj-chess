@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Telemetry.Tests", "Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Presentation.Tests", "Chess.Presentation.Tests\Chess.Presentation.Tests.csproj", "{8BBF4A1B-A383-4641-B460-09DB4A601434}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Interfaces", "Chess.Interfaces\Chess.Interfaces.csproj", "{D425F922-5B62-4974-9FC5-BABA96C5C164}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{8BBF4A1B-A383-4641-B460-09DB4A601434}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BBF4A1B-A383-4641-B460-09DB4A601434}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BBF4A1B-A383-4641-B460-09DB4A601434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D425F922-5B62-4974-9FC5-BABA96C5C164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D425F922-5B62-4974-9FC5-BABA96C5C164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D425F922-5B62-4974-9FC5-BABA96C5C164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D425F922-5B62-4974-9FC5-BABA96C5C164}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

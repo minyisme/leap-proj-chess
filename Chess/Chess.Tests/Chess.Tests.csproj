@@ -55,6 +55,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Chess.Interfaces\Chess.Interfaces.csproj">
+      <Project>{d425f922-5b62-4974-9fc5-baba96c5c164}</Project>
+      <Name>Chess.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Chess\Chess.csproj">
       <Project>{5cc5426a-b031-4a4b-9b45-b04d1acbe8c5}</Project>
       <Name>Chess</Name>

@@ -1,4 +1,4 @@
-﻿namespace Chess
+﻿namespace Chess.Interfaces
 {
     public enum BoardSide
     {

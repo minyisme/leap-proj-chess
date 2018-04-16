@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5CC5426A-B031-4A4B-9B45-B04D1ACBE8C5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Chess</RootNamespace>
-    <AssemblyName>Chess</AssemblyName>
+    <ProjectGuid>{D425F922-5B62-4974-9FC5-BABA96C5C164}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Chess.Interfaces</RootNamespace>
+    <AssemblyName>Chess.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,32 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Board.cs" />
-    <Compile Include="ConsoleBoardRenderer.cs" />
-    <Compile Include="Pieces\Knight.cs" />
-    <Compile Include="ConsoleInputProvider.cs" />
-    <Compile Include="ConsoleOutputProvider.cs" />
-    <Compile Include="Exceptions\InvalidPieceMoveException.cs" />
-    <Compile Include="Exceptions\InvalidBoardMoveException.cs" />
-    <Compile Include="Exceptions\InvalidInputException.cs" />
-    <Compile Include="GameManager.cs" />
-    <Compile Include="GameState.cs" />
-    <Compile Include="Pieces\Piece.cs" />
-    <Compile Include="HumanPlayer.cs" />
-    <Compile Include="Move.cs" />
-    <Compile Include="MoveProvider.cs" />
-    <Compile Include="Position.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="BoardSide.cs" />
+    <Compile Include="IBoard.cs" />
+    <Compile Include="IBoardRenderer.cs" />
+    <Compile Include="IInputProvider.cs" />
+    <Compile Include="IMove.cs" />
+    <Compile Include="IMoveProvider.cs" />
+    <Compile Include="IOutputProvider.cs" />
+    <Compile Include="IPiece.cs" />
+    <Compile Include="IPlayer.cs" />
+    <Compile Include="IPosition.cs" />
+    <Compile Include="PlayerColor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Chess.Interfaces\Chess.Interfaces.csproj">
-      <Project>{d425f922-5b62-4974-9fc5-baba96c5c164}</Project>
-      <Name>Chess.Interfaces</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
