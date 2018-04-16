@@ -1,11 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess", "Chess\Chess.csproj", "{5CC5426A-B031-4A4B-9B45-B04D1ACBE8C5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Tests", "Chess.Tests\Chess.Tests.csproj", "{1B8FE463-742D-4B49-8BB2-AC13991453AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Presentation", "Chess.Presentation\Chess.Presentation.csproj", "{05521890-152D-4100-8289-C79F4F1F5950}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.DataPersistence", "Chess.DataPersistence\Chess.DataPersistence.csproj", "{349DC848-13B1-4447-9BC7-2033145C9753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Telemetry", "Chess.Telemetry\Chess.Telemetry.csproj", "{E9BFE8A0-540C-4CFF-8820-E4102F701395}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.DataPersistence.Tests", "Chess.DataPersistence.Tests\Chess.DataPersistence.Tests.csproj", "{DC621C05-2C83-43F2-A7A5-309AF895C04D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Telemetry.Tests", "Chess.Telemetry.Tests\Chess.Telemetry.Tests.csproj", "{78443175-E049-4A65-9A9D-1716C9E0328B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Presentation.Tests", "Chess.Presentation.Tests\Chess.Presentation.Tests.csproj", "{8BBF4A1B-A383-4641-B460-09DB4A601434}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +33,30 @@ Global
 		{1B8FE463-742D-4B49-8BB2-AC13991453AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B8FE463-742D-4B49-8BB2-AC13991453AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B8FE463-742D-4B49-8BB2-AC13991453AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05521890-152D-4100-8289-C79F4F1F5950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05521890-152D-4100-8289-C79F4F1F5950}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05521890-152D-4100-8289-C79F4F1F5950}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05521890-152D-4100-8289-C79F4F1F5950}.Release|Any CPU.Build.0 = Release|Any CPU
+		{349DC848-13B1-4447-9BC7-2033145C9753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{349DC848-13B1-4447-9BC7-2033145C9753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{349DC848-13B1-4447-9BC7-2033145C9753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{349DC848-13B1-4447-9BC7-2033145C9753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9BFE8A0-540C-4CFF-8820-E4102F701395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9BFE8A0-540C-4CFF-8820-E4102F701395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9BFE8A0-540C-4CFF-8820-E4102F701395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9BFE8A0-540C-4CFF-8820-E4102F701395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC621C05-2C83-43F2-A7A5-309AF895C04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC621C05-2C83-43F2-A7A5-309AF895C04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC621C05-2C83-43F2-A7A5-309AF895C04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC621C05-2C83-43F2-A7A5-309AF895C04D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78443175-E049-4A65-9A9D-1716C9E0328B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78443175-E049-4A65-9A9D-1716C9E0328B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78443175-E049-4A65-9A9D-1716C9E0328B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78443175-E049-4A65-9A9D-1716C9E0328B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BBF4A1B-A383-4641-B460-09DB4A601434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BBF4A1B-A383-4641-B460-09DB4A601434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BBF4A1B-A383-4641-B460-09DB4A601434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BBF4A1B-A383-4641-B460-09DB4A601434}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
