@@ -15,8 +15,7 @@ namespace Chess
         public string Read()
         {
             // This function should read a line from the console and return it
-            string newInput = Console.ReadLine();
-            return newInput;
+            return Console.ReadLine();
         }
     }
 }

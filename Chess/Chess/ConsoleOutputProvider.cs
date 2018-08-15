@@ -15,7 +15,7 @@ namespace Chess
         public void Write(string output)
         {
             // This function should write the specified output to the console
-            Console.WriteLine(output);
+            Console.Write(output);
         }
 
         /// <summary>
