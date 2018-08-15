@@ -15,7 +15,7 @@ namespace Chess
         public string Read()
         {
             // This function should read a line from the console and return it
-            throw new NotImplementedException();
+            return Console.ReadLine();
         }
     }
 }
