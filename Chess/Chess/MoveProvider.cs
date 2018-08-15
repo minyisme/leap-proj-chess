@@ -1,5 +1,6 @@
 ﻿using Chess.Interfaces;
 using System;
+using Chess.Exceptions;
 
 namespace Chess
 {
@@ -29,6 +30,10 @@ namespace Chess
         {
             // validate the inputs
             // If ip is null, throw an ArgumentNullException
+            if (ip == null)
+            {
+                throw new ArgumentNullException();
+            }
 
             this.ip = ip;
         }
@@ -44,7 +49,35 @@ namespace Chess
 
             // if the input is invalid (can't be parsed into an int, for example), 
             // you should throw an InvalidInputException
-            throw new NotImplementedException();
+            Console.WriteLine("Choose a piece to move and give the x coordinate.");
+            string _sSourceX = ip.Read();
+            Console.WriteLine("Choose a piece to move and give the y coordinate.");
+            string _sSourceY = ip.Read();
+            Console.WriteLine("Choose an x coordinate to move to.");
+            string _sDestX = ip.Read();
+            Console.WriteLine("Choose a y coordinate to move to.");
+            string _sDestY = ip.Read();
+
+            try
+            {
+                int sourceX = Convert.ToInt32(_sSourceX);
+                int sourceY = Convert.ToInt32(_sSourceY);
+
+                int destX = Convert.ToInt32(_sDestX);
+                int destY = Convert.ToInt32(_sDestY);
+
+                var move = new Move
+                {
+                    Source = new Position(sourceY, sourceX),
+                    Dest = new Position(destY, destX)
+                };
+                return move;
+            }
+            catch (InvalidCastException e)
+            {
+                Console.WriteLine($"{e.Message}: invalid input.");
+                throw new InvalidInputException();
+            }
         }
     }
 }
