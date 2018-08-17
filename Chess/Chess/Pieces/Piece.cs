@@ -1,4 +1,5 @@
 ﻿using Chess.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Chess.Pieces
@@ -21,8 +22,16 @@ namespace Chess.Pieces
         public Piece(IPlayer owner, string label)
         {
             // validate the inputs
-            // If owner is null, throw an ArgumentNullException
-            // If label is null or empty, throw an appropriate exception
+            if (owner == null)
+            {
+                throw new ArgumentNullException();
+            }
+            
+            if (String.IsNullOrEmpty(label))
+            {
+                throw new ArgumentNullException();
+            }
+
             Owner = owner;
             Label = label;
         }

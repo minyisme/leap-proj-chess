@@ -16,7 +16,7 @@ namespace Chess.Pieces
         /// Constructor that expects an owner
         /// </summary>
         /// <param name="owner"></param>
-        public Knight(IPlayer owner) : base(owner, "k")
+        public Knight(IPlayer owner) : base(owner, "N")
         {
         }
 
@@ -30,19 +30,40 @@ namespace Chess.Pieces
         /// <returns>The valid destination positions, or null if there are none</returns>
         public override IEnumerable<IPosition> GetValidMoves(IPosition source, IBoard board)
         {
-            // knights can move in any direction and can jump over pieces
-            // They must move in an "L" pattern (2 in one direction, 1 in the other)
+            List<IPosition> allMoves = new List<IPosition>();
+            List<IPosition> validMoves = new List<IPosition>();
 
             // Generate all the destination positions for this piece based on the source 
             // and the piece move rules
 
+            allMoves.Add(new Position(source.Row + 2, source.Column + 1));
+            allMoves.Add(new Position(source.Row + 2, source.Column - 1));
+            allMoves.Add(new Position(source.Row + 1, source.Column + 2));
+            allMoves.Add(new Position(source.Row - 1, source.Column + 2));
+            allMoves.Add(new Position(source.Row - 2, source.Column + 1));
+            allMoves.Add(new Position(source.Row - 2, source.Column - 1));
+            allMoves.Add(new Position(source.Row + 1, source.Column - 2));
+            allMoves.Add(new Position(source.Row - 1, source.Column - 2));
+            
             // if there are pieces between the source and any of the destinations (ask the board),
             // that destination is invalid since pieces can't move through other pieces 
             // This check doesn't have to be done for Knights, but does have to be done
             // for every other piece
 
-            // return the valid destinations for the current piece
-            throw new NotImplementedException();
+            // Checks for other pieces on possible positions, and checks if opponent piece or not
+            // Need add check for board borders, cannot move outside of board
+            for (var i = 0; i < allMoves.Count; i++)
+            {
+                var currentPosition = allMoves[i];
+                var piece = board.GetPiece(currentPosition);
+
+                if ((piece != null && this.Owner != piece.Owner) || piece == null)
+                {
+                    validMoves.Add(currentPosition);
+                }
+            }
+
+            return validMoves;
         }
     }
 }
