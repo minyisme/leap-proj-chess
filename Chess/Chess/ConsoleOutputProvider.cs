@@ -15,7 +15,7 @@ namespace Chess
         public void Write(string output)
         {
             // This function should write the specified output to the console
-            throw new NotImplementedException();
+            Console.Write(output);
         }
 
         /// <summary>
@@ -25,7 +25,8 @@ namespace Chess
         public void WriteLine(string output)
         {
             // This function should write the specified output to the console, with a newline at the end
-            throw new NotImplementedException();
+            Console.WriteLine(output);
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -34,7 +35,7 @@ namespace Chess
         public void WriteLine()
         {
             // This function should write an empty new line to the console
-            throw new NotImplementedException();
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -43,7 +44,7 @@ namespace Chess
         public void Clear()
         {
             // This function should clear the output
-            throw new NotImplementedException();
+            Console.Clear();
         }
     }
 }
