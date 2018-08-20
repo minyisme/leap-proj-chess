@@ -50,11 +50,15 @@ namespace Chess
             // validate the inputs
             // If name is null or empty, throw an ArgumentNullException
             // If mp is null, throw an ArgumentNullException
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentNullException("Please provide a valid name");
+            }
 
             Name = name;
             Side = side;
             Color = color;
-            this.mp = mp;
+            this.mp = mp ?? throw new ArgumentNullException("Please provide a move Provider");
         }
 
         /// <summary>
@@ -63,9 +67,10 @@ namespace Chess
         /// <returns>The move</returns>
         public IMove GetMove()
         {
+            var currentMove = mp.GetMove();
+            return currentMove;
             // get the move from the move provider
             // set the move owner to the current player (using "this") since this is used during validation
-            throw new NotImplementedException();
         }
     }
 }
