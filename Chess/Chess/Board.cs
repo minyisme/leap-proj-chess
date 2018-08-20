@@ -70,10 +70,13 @@ namespace Chess
         public IPiece GetPiece(IPosition p)
         {
             // validate the inputs!
-
+            if (p == null)
+            {
+                throw new ArgumentNullException();
+            }
+            return this.pieces[p.Row, p.Column];
             // get the piece at the specified position
             // if there is no piece, return null
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -84,9 +87,12 @@ namespace Chess
         public void AddPiece(IPiece piece, IPosition p)
         {
             // validate the inputs!
-
+            if (piece == null || p == null)
+            {
+                throw new ArgumentNullException();
+            }
             // Add the specified piece to the board at the specified position
-            throw new NotImplementedException();
+            this.pieces[p.Row, p.Column] = piece;
         }
 
         /// <summary>
@@ -95,19 +101,31 @@ namespace Chess
         public void MovePiece(IPlayer player, IMove move)
         {
             // validate the inputs!
-
+            if (player == null || move == null)
+            {
+                throw new ArgumentNullException();
+            }
             // if there is no piece at the source, throw an InvalidBoardMoveException 
             // with an appropriate message
-
+            if (this.pieces[move.Dest.Row, move.Dest.Column] == null)
+            {
+                throw new Exception("Invalid board move");
+            }
             // if there is a piece in the source, but the specified player is not the piece owner, 
             // throw an InvalidBoardMoveException with an appropriate message
-
+            if (this.pieces[move.Dest.Row, move.Dest.Column].Owner != player)
+            {
+                throw new Exception("Invalid board move");
+            }
             // if there is a piece in the dest, but the piece owner and the move owner are the same, 
             // throw an InvalidBoardMoveException with an appropriate message
-
+            if (this.pieces[move.Dest.Row, move.Dest.Column].Owner == player)
+            {
+                throw new Exception("Invalid board move");
+            }
             // Ask the piece for valid moves based on the piece position
             // This works because GetValidMoves is absrtact and will be called on the correct concrete piece
-            
+            if (this.pieces[move.Source.Row, move.Source.Column].GetValidMoves())
             // If the specified destination is not in the valid move list,
             // throw an InvalidPieceMoveException with an appropriate message
 
