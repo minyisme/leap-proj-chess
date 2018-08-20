@@ -51,7 +51,7 @@ namespace Chess.Pieces
             // for every other piece
 
             // Checks for other pieces on possible positions, and checks if opponent piece or not
-            // Need add check for board borders, cannot move outside of board
+            // TODO: Need add check for board borders, cannot move outside of board!!!
             for (var i = 0; i < allMoves.Count; i++)
             {
                 var currentPosition = allMoves[i];
