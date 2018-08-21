@@ -57,7 +57,7 @@ namespace Chess
             // validate the inputs
 
             this.pieces = pieces;
-
+            // TO DO ADD NUMROWS AND COLUMNS
             // calculate the number of rows and columns and update num rows and num columns
         }
 
@@ -154,7 +154,7 @@ namespace Chess
         public bool IsColumnValid(int column)
         {
             // write code to check if the specified column is "on the board"
-            if (this.pieces[0, column] != null)
+            if (column > 0 && column <= NumColumns)
             {
                 return true;
             }
@@ -168,8 +168,12 @@ namespace Chess
         /// <returns>True if yes, false otherwise</returns>
         public bool IsRowValid(int row)
         {
+            if (row > 0 && row <= NumRows)
+            {
+                return true;
+            }
+            return false;
             // write code to check if the specified column is "on the board"
-            throw new NotImplementedException();
         }
 
         /// <summary>
