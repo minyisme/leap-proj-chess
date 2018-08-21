@@ -199,18 +199,111 @@ namespace Chess
                 return false;
             }
             // if p1 and p2 don't share a row, column, or a diagonal, return false
-            if (p1.Row != p2.Row && p1.Column != p2.Column) // To do: check diagonal
+            if (p1.Row != p2.Row && p1.Column != p2.Column && p1.Row - p2.Row != p1.Column - p2.Column && p1.Row - p2.Row != -(p1.Column - p2.Column)) // To do: check diagonal
             {
                 return false;
             }
             // if they are in the same row, check the columns between them in the same row
             // if there are any pieces there, return true. Otherwise, return false
+
+            if (p1.Row == p2.Row)
+            {
+                if (p2.Column > p1.Column)
+                {
+                    for (var i = p1.Column + 1; i < p2.Column; i++)
+                    {
+                        if (pieces[p1.Row, i] != null)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                else
+                {
+                    for (var i = p2.Column + 1; i < p1.Column; i++)
+                    {
+                        if (pieces[p1.Row, i] != null)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
             // if they are in the same column, check the rows between them in the same column
             // if there are any pieces there, return true. Otherwise, return false
 
+            if (p1.Column == p2.Column)
+            {
+                if (p2.Row > p1.Row)
+                {
+                    for (var i = p1.Row + 1; i < p2.Row; i++)
+                    {
+                        if (pieces[p1.Column, i] != null)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                else
+                {
+                    for (var i = p2.Row + 1; i < p1.Row; i++)
+                    {
+                        if (pieces[p1.Column, i] != null)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
             // if they share a diagonal, check the squares between them on the shared diagonal
             // if there are any pieces there, return true. Otherwise, return false
-            throw new NotImplementedException();
+
+            if (p2.Row > p1.Row && p2.Column > p1.Column)
+            {
+                for (var i = 1; i + p1.Row < p2.Row; i++)
+                {
+                    if (pieces[p1.Row + i, p1.Column + i] != null)
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (p2.Row < p1.Row && p2.Column < p1.Column)
+            {
+                for (var i = 1; i + p2.Row < p1.Row; i++)
+                {
+                    if (pieces[p2.Row + i, p2.Column + i] != null)
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (p2.Row > p1.Row && p2.Column < p1.Column)
+            {
+                for (var i = 1; i + p1.Row < p2.Row; i++)
+                {
+                    if (pieces[p1.Row + i, p1.Column - i] != null)
+                    {
+                        return true;
+                    }
+                }
+            }
+            else
+            {
+                for (var i = 1; i + p2.Row < p1.Row; i++)
+                {
+                    if (pieces[p1.Row - i, p1.Column + i] != null)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+            
         }
     }
 }
