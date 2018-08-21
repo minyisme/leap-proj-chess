@@ -57,7 +57,8 @@ namespace Chess
             // validate the inputs
 
             this.pieces = pieces;
-            // TO DO ADD NUMROWS AND COLUMNS
+            this.NumRows = 8;
+            this.NumColumns = 8;
             // calculate the number of rows and columns and update num rows and num columns
         }
 
