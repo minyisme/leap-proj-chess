@@ -125,19 +125,25 @@ namespace Chess
             }
             // Ask the piece for valid moves based on the piece position
             // This works because GetValidMoves is absrtact and will be called on the correct concrete piece
-            if (this.pieces[move.Source.Row, move.Source.Column].GetValidMoves(move.Source))
-            {
-
-            }
+            var validMoves = this.pieces[move.Source.Row, move.Source.Column].GetValidMoves(move.Source, this);
             // If the specified destination is not in the valid move list,
             // throw an InvalidPieceMoveException with an appropriate message
-            if (this.pieces[move.Dest.Row, move.Dest.Column].GetValidMoves(move.Dest))
+            var validMove = false;
+            foreach (var moveOption in validMoves)
             {
-
+                if (move.Dest == moveOption)
+                {
+                    validMove = true;
+                }
+            }
+            if (validMove == false)
+            {
+                throw new Exception("Invalid Board Move");
             }
             // once we get here, we know the move is valid
             // move the piece, overwriting the enemy piece in dest if there is one
-            this.pieces[move.Dest.Row, move.Dest.Column] = move.Source;
+            this.pieces[move.Dest.Row, move.Dest.Column] = this.pieces[move.Source.Row, move.Source.Column];
+            this.pieces[move.Source.Row, move.Source.Column] = null;
         }
 
         /// <summary>
@@ -193,29 +199,12 @@ namespace Chess
                 return false;
             }
             // if p1 and p2 don't share a row, column, or a diagonal, return false
-            if (p1.Row != p2.Row && p1.Column != p2.Column)
+            if (p1.Row != p2.Row && p1.Column != p2.Column) // To do: check diagonal
             {
                 return false;
             }
             // if they are in the same row, check the columns between them in the same row
             // if there are any pieces there, return true. Otherwise, return false
-            if (p1.Row == p2.Row)
-            {
-                var column1 = p1.Column;
-                var column2 = p2.Column;
-                if (column1 > column2)
-                {
-
-                    for(var i=column1 + 1; i < column2; i++)
-                    {
-
-                    }
-                }
-                if (this.pieces[p1.Row])
-                {
-
-                }
-            }
             // if they are in the same column, check the rows between them in the same column
             // if there are any pieces there, return true. Otherwise, return false
 
