@@ -26,6 +26,8 @@ namespace Chess
         /// </summary>
         public int NumColumns { get; protected set; }
 
+        private bool isKingRemoved { get; set; } = false;
+
         /// <summary>
         /// Default constructor
         /// </summary>
@@ -143,6 +145,10 @@ namespace Chess
             }
             // once we get here, we know the move is valid
             // move the piece, overwriting the enemy piece in dest if there is one
+            if (pieces[move.Dest.Row, move.Dest.Column].Label == "K")
+            {
+                isKingRemoved = true;
+            }
             this.pieces[move.Dest.Row, move.Dest.Column] = this.pieces[move.Source.Row, move.Source.Column];
             this.pieces[move.Source.Row, move.Source.Column] = null;
         }
